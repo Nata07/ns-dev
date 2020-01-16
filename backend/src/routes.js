@@ -1,10 +1,13 @@
 const {Router} = require('express');
+const DevController = require('./controllers/DevsController');
+const SearchController = require('./controllers/SearchController');
 
 const routes = Router();
 
-routes.get('/');
+routes.get('/devs', DevController.index);
+routes.get('/search', SearchController.index);
 
-routes.post('/devs', (req, res) => {
-  console.log(req.body);
-});
+routes.post('/devs', DevController.store);
+
+
  module.exports = routes;
